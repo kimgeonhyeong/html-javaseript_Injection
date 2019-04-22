@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <button class="BUT" type="button" onclick="location.replace('index.html');">Back</button>
+    <form class="Login_box" action="login_s.php" method="get">
+      <div class="loginform">
+        <input type="text" name="ID" placeholder="ID" required>
+        <input type="password" name="PASSWORD" placeholder="Password" required>
+        <input type="submit" value="로그인" class="Login_button">
+        <div class="nd">
+          <input type="hidden" name="GET_file" value="n2@d">
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
