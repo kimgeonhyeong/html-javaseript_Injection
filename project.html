@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+    <link rel="stylesheet" href="project.css">
+  </head>
+
+  <body>
+    <div class="main_box">
+
+      <div class="inside_box1">
+      <h1>숫자 추측 게임</h1>
+
+      <p>우리는 1에서 100사이의 임의의 숫자를 선택했다.<br>
+          1번 이내로 맞춰 보세요.
+          <br>추측이 너무 높거나 낮으면 알려 드리겠습니다.</p>
+          </div>
+<div class="form">
+  <label for="guessField">추측 입력: </label><input type="text" id="guessField" class="guessField">
+  <input type="submit" value="Submit guess" class="guessSubmit">
+</div>
+
+<div class="resultParas">
+  <p class="guesses"></p>
+  <p class="lastResult"></p>
+  <p class="lowOrHi"></p>
+</div>
+  </div>
+</body>
+
+<script>
+  var randomNumber = Math.floor(Math.random()*100) + 1;
+  var guesses = document.querySelector('.guesses');
+  var lastResult = document.querySelector('.lastResult');
+  var lowOrHi = document.querySelector('.lowOrHi');
+  console.log(lowOrHi);
+  var guessSubmit = document.querySelector('.guessSubmit');
+  var guessField = document.querySelector('.guessField');
+  var guessCount = 1;
+  var resetButton;
+  function checkGuess() {
+    var userGuess = Number(guessField.value);
+    if(guessCount === 1) {
+      guesses.textContent = '이전 추측: ';
+    }
+    guesses.textContent += userGuess + ' ';
+
+    if(userGuess === randomNumber) {
+      lastResult.textContent = '축하합니다! 당신이 옳았어요!';
+      lastResult.style.backgroundColor = 'green';
+      lowOrHi.textContent = '';
+      alert("Congratulations! You were right! And You got a flag!");
+      location.href="YEE.html";
+    } else if(guessCount === 1) {
+      document.cookie = "ao53846i2d2z63";
+      lastResult.textContent = 'ㅃ2';
+      alert("에러가 발생했습니다.");
+      window.history.go(-1);
+    } else {
+      lastResult.textContent = '틀렸어요!';
+      lastResult.style.backgroundColor = 'red';
+      if(userGuess < randomNumber) {
+        lowOrHi.textContent = '마지막 추측이 너무 낮았습니다!';
+      } else if(userGuess > randomNumber) {
+        lowOrHi.textContent = '마지막 추측이 너무 높았습니다!';
+      }
+    }
+
+    guessCount++;
+    guessField.value = '';
+    guessField.focus();
+  }
+  guessSubmit.addEventListener('click', checkGuess);
+
+
+  function resetGame() {
+	  guessCount = 1;
+
+	  var resetParas = document.querySelectorAll('.resultParas p');
+	  for(var i = 0; i < resetParas.length; i++) {
+		  resetParas[i].textContent = '';
+	  }
+	  resetButton.parentNode.removeChild(resetButton);
+
+	  guessField.disabled = false;
+	  guessSubmit.disabled = false;
+	  guessField.value = '';
+	  guessField.focus();
+
+	  lastResult.style.backgroundColor = 'white';
+
+	  randomNumber = Math.floor(Math.random()*100) + 1;
+  }
+</script>
+
+</html>
