@@ -1,0 +1,53 @@
+html{
+  background-color: RGB(178,199,217);
+}
+
+.BUT{
+  border: 0;
+  background-color:RGBA(0,0,0,0);
+  cursor: pointer;
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+.BUT:hover{
+  color: RGB(253,240,27);
+}
+
+.Login_box{
+  width: 268px;
+  background-color: RGB(253,240,27);
+  padding: 60px;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top: 50%;
+  margin-top: -146.5px;
+}
+
+.Login_box{
+  display: flex;
+  flex-direction: column;
+}
+
+.loginform input:not(.Login_button){
+  width: calc(100% - 30px);
+  height: 15px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 7px;
+  border-color: rgb(240,240,240);
+  border-style: solid;
+}
+
+.Login_button{
+  padding: 15px 10px;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 30px;
+  color: white;
+  background-color: rgb(68, 49, 50);
+  border: 0;
+  width: calc(100% - 10px);
+  cursor: pointer;
+}
